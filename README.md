@@ -3,6 +3,6 @@
 ### Programación I. 
 
 #### Equipo:
--santiago
--Felipe
+- Santiago
+- Felipe
 -
