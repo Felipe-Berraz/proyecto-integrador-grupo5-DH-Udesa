@@ -6,3 +6,10 @@
 - Santiago
 - Felipe
 -
+
+
+### Falta:
+- Paginas:
+    - Favorites
+    - Todas detail
+    - Categorías Home
