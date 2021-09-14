@@ -408,4 +408,31 @@ i.fas.fa-bars {
     .info-banner{
         display: block;
     }
+    .logo-container{
+        margin-top: 15px;
+    }
+    .logoregistro{
+        width: 18%;
+        margin-left: 38%;
+        margin-top: -30%;
+    }
+    .centroregistro{
+        width: 18%;
+        margin-left: 38%;
+        margin-top: 1%;
+    }
+    .title-registro{
+        width: 18%;
+        margin-left: 38%;
+        margin-top: -45%;
+        color: white;
+        font-family: 'Suez One', serif;
+    }
+    .recordar-registro{
+        width: 18%;
+        margin-left: 38%;
+        margin-top: -45%;
+        color: white;
+        font-family: 'Suez One', serif;
+    }
 }
