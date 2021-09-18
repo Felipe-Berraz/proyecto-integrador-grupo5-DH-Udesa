@@ -81,34 +81,37 @@
             <img src="images/logo_transparent.png" alt="logo" class="logoregistro">
         </div>
         <h1 class="title-registro">Registrarse</h2>
-        <form action="results.html" method="GET">
+        <form action="/" method="">
+            <!-- input name -->
             <div>
-                
-                <input class="centroregistro" type="text" name="nombre" id="nombre" value="" placeholder="Nombre de usuario" required>
-    
+                <input class="centroregistro" type="text" name="name" id="nombre" value="" placeholder="Nombre de usuario" required>
             </div>
+
+            <!-- input email -->
             <div>
-                <input class="centroregistro"  type="email" name="" id="email" placeholder="Email"
-                value"" required>
+                <input class="centroregistro"  type="email" name="email" id="email" placeholder="Email"value="" required>
             </div>
+
+            <!-- input password -->
             <div>
-                <input class="centroregistro" type="password" name="" id=""
-                value="" placeholder="Contraseña">
+                <input class="centroregistro" type="password" name="password" id="" value="" placeholder="Contraseña">
             </div>
+
+            <!-- input confirm-password -->
             <div>
-                <input class="centroregistro" type="password" name="" id=""
-                value="" placeholder="Repetir contraseña">
+                <input class="centroregistro" type="password" name="password-confirm" id="" value="" placeholder="Repetir contraseña">
             </div>
+
+            <!-- input remember user -->
             <div>
                 <label class="recordar-registro" type="checkbox" for="Recordar">Recordar mi usuario</label>
                 <input class="Recordar" id="Recordar" type="checkbox" name="Recordar" type="radio">
                 <label class="masculino" for="masculino"></label>
             </div>
 
-         
-                <button type="submit" class="btn-group">Registrarme</button>
+            <button type="submit" class="btn-group">Registrarme</button>
                 
-             
+        </form>
 
 </body>
 </html>

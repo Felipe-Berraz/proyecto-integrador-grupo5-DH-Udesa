@@ -16,7 +16,7 @@ body{
     background-position: bottom;
 }
 
-header{
+.main-header-index{
     height: 100vh;
     max-height: 667px;
     background: url('../images/content/img-rick-morty-content-desktop.jpg') no-repeat;
@@ -401,7 +401,7 @@ i.fas.fa-bars {
 
 @media screen and (min-width: 480px) and (max-width: 769px) {
     /* header responsive styles  */
-    header {
+    .main-header-index {
         height: 110vh;
         background-size: 100% 90%;
     }
@@ -428,7 +428,7 @@ i.fas.fa-bars {
 
 @media screen and (min-width: 769px) {
     /* header responsive styles */
-    header{
+    .main-header-index{
         display: flex;
         background: transparent;
     }
