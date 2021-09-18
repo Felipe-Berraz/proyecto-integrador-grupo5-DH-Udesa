@@ -363,13 +363,6 @@ i.fas.fa-bars {
     margin-left: 15px;
 }
 
-.popular-movies{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 2%;
-}
-
 .btn-content{
     background: transparent;
     border: none;
@@ -404,6 +397,10 @@ i.fas.fa-bars {
     .main-header-index {
         height: 110vh;
         background-size: 100% 90%;
+        max-height: none;
+    }
+    .popular-movies{
+        justify-content: space-around;
     }
     .mobile-nav-top{
         padding: 1% 0;
@@ -431,6 +428,7 @@ i.fas.fa-bars {
     .main-header-index{
         display: flex;
         background: transparent;
+        max-height: 667px
     }
     .mobile-nav-top {
         padding: 0; 
@@ -625,6 +623,8 @@ i.fas.fa-bars {
         opacity: 0;
         background: transparent;
         margin-top: 0;
+        display: flex;
+        align-items: flex-end;
     }
     
     .shadow-card{
@@ -644,6 +644,9 @@ i.fas.fa-bars {
     .btn-content:hover{
         background: rgba(158, 134, 255, 0.25);
         cursor: pointer;
+    }
+    .popular-movies{
+        justify-content: space-between;
     }
 
 }
