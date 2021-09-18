@@ -435,4 +435,51 @@ i.fas.fa-bars {
         color: white;
         font-family: 'Suez One', serif;
     }
+    .btn-group{
+        background-color: #ffffff;
+        width: 84px;
+        margin-left: 43%;
+        font-family: 'Suez One', serif;
+
+    }
+    .title-genero{
+        text-align: center;
+        margin-top: -45%;
+        color: white;
+        font-family: 'Suez One', serif;
+    }
+    .generos-conteiner{
+        display: flex;
+        justify-content: space-between;
+    }
+    .generos{
+        background: #5DEAA8;
+        height: 100px;
+        width: 200px;
+        padding: 20px 50px;
+        margin: 40px 30px;
+    }
+     
+    .generos1{
+        background: url('../images/terror1.jpg') no-repeat;
+        width: 200px;
+        height: 400px;
+        background-size: contain;
+            
+    }
+    .generos2{
+        background: url('../images/accion1.jpg') no-repeat;
+        width: 200px;
+        height: 400px;
+        background-size: contain;
+            
+    }
+    .generos3{
+        background: url('../images/terror1.jpg') no-repeat;
+        width: 200px;
+        height: 400px;
+        background-size: contain;
+            
+    }
+    
 }
