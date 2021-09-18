@@ -189,7 +189,7 @@ i.fas.fa-bars {
 .info-banner{
     margin-top: 15%;
     height: fit-content;
-    z-index: 10;
+    z-index: 5;
     display: none;
 }
 
@@ -481,5 +481,126 @@ i.fas.fa-bars {
         background-size: contain;
             
     }
+    /*Movie styles desktop*/
+    .movie-container{
+        width: 24%;
+        max-width: 340px;
+        min-width: 280px;
+        height: 180px;
+        margin-bottom: 20px;
+    }
     
+    .movie-container:not(:last-child){
+        margin-right: 10px;
+    }
+    
+    #movie1{
+        background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie2{
+        background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie3{
+        background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie4{
+        background: url('../images/content/movies/joker.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie5{
+        background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .title{
+        color: #ffff;
+        margin-top: 30px;
+        margin-left: 15px;
+    }
+    
+    .popular-movies{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 2%;
+    }
+    
+    .btn-content{
+        background: transparent;
+        border: none;
+        outline: none;
+        border: solid 2px rgb(91, 28, 230);
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        position: relative;
+    }
+    
+    .info-container-card{
+        position: absolute;
+        width: 100%;
+        bottom: 5px;
+        right: 5px;
+        z-index: 10;
+        visibility: hidden;
+        opacity: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .btn-play-img,
+    .btn-add-img {
+        width: 45%;
+        margin-top: 9.5px;
+    }
+    
+    .btn-add-container{
+        margin-left: 7px;
+    }
+    
+    .shadow-card{
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+    }
+    
+    .movie-container:hover > .link-to-Movie .shadow-card,
+    .movie-container:hover > .info-container-card{
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .btn-content:hover{
+        background: rgba(158, 134, 255, 0.25);
+        cursor: pointer;
+    }
+    
+    .link-callToAction {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+    
+    .title-movie{
+        margin-left: 15px;
+        color: #ffff;
+    }
+    
+    .link-to-Movie{
+        text-decoration: none;
+    }
 }
