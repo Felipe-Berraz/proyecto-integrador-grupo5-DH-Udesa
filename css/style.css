@@ -475,6 +475,133 @@ i.fas.fa-bars {
     font-size: 1rem;
 }
 
+
+/* detail Movies */
+.image-container{
+    position: relative;
+}
+
+.image-movie{
+    width: 100%;
+}
+
+.add-favorites {
+    position: absolute;
+    bottom: 14px;
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,.75);
+}
+
+i.far.fa-heart {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 4px;
+}
+
+.title-detail-movie {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.text-info-movie {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-title-detail-movie{
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.rating,
+.date,
+.link-to-genres,
+.main-title-detail-movie,
+i.fas.fa-video {
+    color: white;
+}
+
+i.fas.fa-video,
+i.fas.fa-clock,
+i.fas.fa-star{
+    margin-right: 10px;
+}
+
+.info-detail-movie {
+    padding-left: 5%;
+}
+
+.section-movie-details{
+    margin-bottom: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+#similar-movie1{
+    background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie2{
+    background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie3{
+    background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie4{
+    background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie5{
+    background: url('../images/content/movies/mortal-kombat-content-desktop.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie6{
+    background: url('../images/content/movies/mujer-maravilla-content.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie7{
+    background: url('../images/content/movies/regular-show.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie8{
+    background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
+    background-size: cover;
+}
+
+#similar-movie9{
+    background: url('../images/content/movies/tenet-img.jpg') no-repeat;
+    background-size: cover;
+}
+
+.btn-container-similar-movies {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+}
+
+.similar-movies-main-title{
+    color: #ffff;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 1%;                                                                                                   
+}
+
 @media screen and (min-width: 480px) and (max-width: 769px) {
     /* header responsive styles  */
     .main-header-index {
@@ -578,6 +705,27 @@ i.fas.fa-bars {
         background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
         background-size: cover;
         position: relative;
+    }
+
+    /* detail movies styles */
+    .title-detail-movie {
+        font-size: 1.9rem;
+    }
+    .text-info-movie {
+        font-size: 1.4rem;
+    }
+    .rating,
+    .date,
+    .link-to-genres{
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    .add-favorites {
+        width: 70px;
+        height: 70px;
+    }
+    i.far.fa-heart {
+        font-size: 2rem;
     }
 }
 
@@ -859,4 +1007,54 @@ i.fas.fa-bars {
         position: relative;
     }
 
+    /* detail-movies styles */
+    .section-movie-details{
+        flex-direction: row;
+        margin-bottom: 5%;
+        align-items: center;
+    }
+    .main-title-detail-movie{
+        margin-top: 10%;
+    }
+    .info-detail-movie{
+        width: 50%;
+        padding-left: 3%;
+    }
+    .add-favorites:hover{
+        cursor: pointer;
+    }
+    .similar-movies {
+        height: 200px;
+        width: 30%;
+        position: relative;
+        border-radius: 2px;
+    }
+    .similar-movies-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        row-gap: 20px;
+        margin-bottom: 15px;
+    }
+    .title-similar-movies {
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        color: #ffff;
+        visibility: hidden;
+        opacity: 0;
+    }
+    .btn-container-similar-movies{
+        visibility: hidden;
+        opacity: 0;
+        bottom: 10px;
+    }
+    .similar-movies:hover > .shadow-card,
+    .similar-movies:hover > .title-similar-movies,
+    .similar-movies:hover > .btn-container-similar-movies{
+        visibility: visible;
+        opacity: 1;
+        cursor: pointer;
+        transition: all 0.3s linear;
+    }
 }
