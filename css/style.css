@@ -38,6 +38,7 @@ body{
     height: 100vh;
     background: url('../images/content/img-banner-la-nueva-cenicienta-desktop.jpg') no-repeat;
     background-size: cover;
+    max-height: 667px;
 }
 .mobile-nav-top {
     display: flex;
@@ -342,6 +343,24 @@ i.fas.fa-bars {
     position: relative;
 }
 
+#movie6{
+    background: url('../images/content/movies/tenet-img.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#movie7{
+    background: url('../images/content/movies/regular-show.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#movie8{
+    background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .shadow-card{
     display: none;
 }
@@ -506,6 +525,8 @@ i.fas.fa-bars {
         background: rgba(0,0,0,.9);
         position: fixed;
         top: 0;
+        max-height: 150px;
+        align-items: center;
     }
     .nav-links{
         position: relative;
