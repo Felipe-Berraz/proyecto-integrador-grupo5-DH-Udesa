@@ -615,6 +615,26 @@ i.fas.fa-star{
     margin-left: 1%;                                                                                                   
 }
 
+.seasons-container{
+    display: flex;
+    margin-top: 15px;
+}
+
+.seasons{
+    margin-right: 10px;
+    color: #ffff;
+}
+
+.genres-of-movie{
+    color: #ffff;
+}
+
+#seasons-input{
+    background: rgba(0,0,0,.75);
+    border: 1.2px solid purple;
+    color: #ffff;
+}
+
 @media screen and (min-width: 480px) and (max-width: 769px) {
     /* header responsive styles  */
     .main-header-index {
