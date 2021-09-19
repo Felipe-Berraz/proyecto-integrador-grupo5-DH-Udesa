@@ -16,14 +16,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+    <header class="header-register">
         <div class="container-header">
-            <div class="mobile-nav-top">
-                <img class="logo" id="logo-mobile" src="images/logo_digital_movies_mobile.jpg" alt="logo">
+            <div class="mobile-nav-top s-mobile-nav-top">
+                <img class="logo logo-center" id="logo-mobile" src="images/logo_digital_movies_mobile.jpg" alt="logo">
                 <img class="logo" id="logo-desktop" src="images/logo_transparent-resize.jpg" alt="logo">
-                <button class="btn-burger-menu">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
             <nav class="nav-container">
                 <ul class="main-nav">
@@ -77,40 +74,37 @@
     </header>
 
     <main>
-        <div class="logo-container">
-            <img src="images/logo_transparent.png" alt="logo" class="logoregistro">
-        </div>
         <h1 class="title-registro">Registrarse</h2>
-        <form action="/" method="">
+        <form class="form-register" action="index.html" method="">
             <!-- input name -->
-            <div>
-                <input class="centroregistro" type="text" name="name" id="nombre" value="" placeholder="Nombre de usuario" required>
+            <div class="input-container">
+                <input class="inputs-register" type="text" name="name" id="nombre" value="" placeholder="Nombre de usuario" required>
             </div>
 
             <!-- input email -->
-            <div>
-                <input class="centroregistro"  type="email" name="email" id="email" placeholder="Email"value="" required>
+            <div class="input-container">
+                <input class="inputs-register"  type="email" name="email" id="email" placeholder="Email"value="" required>
             </div>
 
             <!-- input password -->
-            <div>
-                <input class="centroregistro" type="password" name="password" id="" value="" placeholder="Contraseña">
+            <div class="input-container">
+                <input class="inputs-register" type="password" name="password" id="" value="" placeholder="Contraseña">
             </div>
 
             <!-- input confirm-password -->
-            <div>
-                <input class="centroregistro" type="password" name="password-confirm" id="" value="" placeholder="Repetir contraseña">
+            <div class="input-container">
+                <input class="inputs-register" type="password" name="password-confirm" id="" value="" placeholder="Repetir contraseña">
             </div>
 
             <!-- input remember user -->
-            <div>
+            <div class="remember-user">
+                <input class="input-checkbox" id="Recordar" type="checkbox" name="Recordar" type="radio">
                 <label class="recordar-registro" type="checkbox" for="Recordar">Recordar mi usuario</label>
-                <input class="Recordar" id="Recordar" type="checkbox" name="Recordar" type="radio">
-                <label class="masculino" for="masculino"></label>
             </div>
 
-            <button type="submit" class="btn-group">Registrarme</button>
-                
+            <button type="submit" class="btn-group btn-submit">Registrarme</button>
+            
+            <p class="link-to-logIn">Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a> </p>
         </form>
 
 </body>
