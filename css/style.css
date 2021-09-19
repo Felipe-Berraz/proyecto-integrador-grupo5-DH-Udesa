@@ -545,47 +545,51 @@ i.fas.fa-star{
 
 #similar-movie1{
     background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie2{
     background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie3{
     background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie4{
     background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie5{
     background: url('../images/content/movies/mortal-kombat-content-desktop.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie6{
     background: url('../images/content/movies/mujer-maravilla-content.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie7{
     background: url('../images/content/movies/regular-show.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie8{
     background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #similar-movie9{
     background: url('../images/content/movies/tenet-img.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
+}
+
+.similar-movies{
+    height: 40vh;
 }
 
 .btn-container-similar-movies {
@@ -593,6 +597,15 @@ i.fas.fa-star{
     align-items: center;
     position: absolute;
     right: 10px;
+    margin-top: 60%;
+}
+
+.title-similar-movies{
+    color: #ffff;
+    width: fit-content;
+    position: absolute;
+    margin-top: 60%;
+    left: 10px;
 }
 
 .similar-movies-main-title{
@@ -726,6 +739,81 @@ i.fas.fa-star{
     }
     i.far.fa-heart {
         font-size: 2rem;
+    }
+
+    /* detail movie serie styles */
+    #similar-movie1{
+        background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie2{
+        background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie3{
+        background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie4{
+        background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie5{
+        background: url('../images/content/movies/mortal-kombat-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie6{
+        background: url('../images/content/movies/mujer-maravilla-content.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie7{
+        background: url('../images/content/movies/regular-show.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie8{
+        background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie9{
+        background: url('../images/content/movies/tenet-img.jpg') no-repeat;
+        background-size: cover;
+    }
+    .similar-movies {
+        height: 20vh;
+        position: relative;
+        width: 45%;
+    }
+    .title-similar-movies {
+        margin-top: 45%;
+        left: 20px;
+        padding: 0.5%;
+        background: rgba(0,0,0,.75);
+        border-radius: 5px;
+    }
+    .btn-container-similar-movies {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+        margin-top: 45%;
+    }
+    .similar-movies-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        row-gap: 20px;
+        margin-bottom: 15px;
+    }
+    .section-similar-movies{
+        margin-bottom: 150px;
     }
 }
 
