@@ -318,46 +318,46 @@ i.fas.fa-bars {
 
 #movie1{
     background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 
 #movie2{
     background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 #movie3{
     background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 #movie4{
     background: url('../images/content/movies/joker.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 #movie5{
     background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 
 #movie6{
     background: url('../images/content/movies/tenet-img.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 
 #movie7{
     background: url('../images/content/movies/regular-show.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 
 #movie8{
     background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 }
 
@@ -402,7 +402,7 @@ i.fas.fa-bars {
     top: 0;
 }
 
-.title-movie{
+.title-movie, .date-out{
     margin-left: 15px;
     color: #ffff;
 }
@@ -532,6 +532,52 @@ i.fas.fa-bars {
     }    
     .link-to-logIn{
         font-size: 1.25rem;
+    }
+
+    /* Movie styles responsive */
+    #movie1{
+        background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie2{
+        background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie3{
+        background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie4{
+        background: url('../images/content/movies/joker.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie5{
+        background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie6{
+        background: url('../images/content/movies/tenet-img.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie7{
+        background: url('../images/content/movies/regular-show.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie8{
+        background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
     }
 }
 
@@ -758,6 +804,7 @@ i.fas.fa-bars {
         visibility: visible;
         opacity: 1;
     }
+
     
     .btn-content:hover{
         background: rgba(158, 134, 255, 0.25);
@@ -765,6 +812,51 @@ i.fas.fa-bars {
     }
     .popular-movies{
         justify-content: space-between;
+    }
+    
+    #movie1{
+        background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie2{
+        background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie3{
+        background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie4{
+        background: url('../images/content/movies/joker.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #movie5{
+        background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie6{
+        background: url('../images/content/movies/tenet-img.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie7{
+        background: url('../images/content/movies/regular-show.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+    #movie8{
+        background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
     }
 
 }

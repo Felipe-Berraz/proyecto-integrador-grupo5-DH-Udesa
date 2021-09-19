@@ -6,5 +6,3 @@
 - Santiago
 - Felipe
 - Martina
-
-Cambiar para mobile las movies de cover a contain
