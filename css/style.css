@@ -1145,4 +1145,48 @@ i.fas.fa-star{
         cursor: pointer;
         transition: all 0.3s linear;
     }
+    #similar-movie1{
+        background: url('../images/content/movies/harry-potter-1.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie2{
+        background: url('../images/content/movies/img-space-jam-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie3{
+        background: url('../images/content/movies/it-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie4{
+        background: url('../images/content/movies/king-kong-godzilla-content-dekstop-horizontal.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie5{
+        background: url('../images/content/movies/mortal-kombat-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie6{
+        background: url('../images/content/movies/mujer-maravilla-content.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie7{
+        background: url('../images/content/movies/regular-show.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie8{
+        background: url('../images/content/movies/trolls-2-content-desktop.jpg') no-repeat;
+        background-size: cover;
+    }
+    
+    #similar-movie9{
+        background: url('../images/content/movies/tenet-img.jpg') no-repeat;
+        background-size: cover;
+    }
 }
