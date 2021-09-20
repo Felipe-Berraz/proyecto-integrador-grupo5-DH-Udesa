@@ -1011,7 +1011,6 @@ i.fas.fa-star{
         text-align: center;
         margin-top: 10%;
         color: white;
-        font-family: 'Suez One', serif;
     }
     .generos-conteiner{
         display: flex;
@@ -1028,21 +1027,21 @@ i.fas.fa-star{
     .generos1{
         background: url('../images/terror1.jpg') no-repeat;
         width: 200px;
-        height: 400px;
+        height: 300px;
         background-size: contain;
             
     }
     .generos2{
         background: url('../images/accion1.jpg') no-repeat;
         width: 200px;
-        height: 400px;
+        height: 300px;
         background-size: contain;
             
     }
     .generos3{
         background: url('../images/laliga.jpg') no-repeat;
         width: 200px;
-        height: 400px;
+        height: 300px;
         background-size: contain;
             
     }
@@ -1050,7 +1049,7 @@ i.fas.fa-star{
     .generos4{
         background: url('../images/terror2.jpg') no-repeat;
         width: 200px;
-        height: 400px;
+        height: 300px;
         background-size: contain;
             
     }
@@ -1246,5 +1245,12 @@ i.fas.fa-star{
     #similar-movie9{
         background: url('../images/content/movies/tenet-img.jpg') no-repeat;
         background-size: cover;
+    }
+    .title-detail-genero{
+
+        text-align: center;
+        margin-top: 10%;
+        color: white;
+
     }
 }
