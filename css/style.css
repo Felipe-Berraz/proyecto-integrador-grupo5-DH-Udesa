@@ -93,6 +93,7 @@ i.fas.fa-bars {
 
 .main-nav{
     padding-bottom: 4%;
+    display: flex;
 }
 
 .secondary-nav{
@@ -1016,6 +1017,10 @@ i.fas.fa-pen {
         opacity: 0;
         transition: .3s;
     }
+    .nav-links:hover::after{
+        width: 100%;
+        opacity: 1;
+    }
 
     /* register responsive */
     .form-register{
@@ -1045,10 +1050,6 @@ i.fas.fa-pen {
         margin-bottom: 20px;
     }
       
-    .nav-links:hover::after{
-        width: 100%;
-        opacity: 1;
-    }
     .info-banner{
         display: block;
     }
