@@ -1247,10 +1247,12 @@ i.fas.fa-star{
         background-size: cover;
     }
     .title-detail-genero{
-
         text-align: center;
         margin-top: 10%;
         color: white;
 
+    }
+    .title-search-results{
+        margin-top: 10%;
     }
 }
