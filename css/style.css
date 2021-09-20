@@ -1040,7 +1040,15 @@ i.fas.fa-star{
             
     }
     .generos3{
-        background: url('../images/terror1.jpg') no-repeat;
+        background: url('../images/laliga.jpg') no-repeat;
+        width: 200px;
+        height: 400px;
+        background-size: contain;
+            
+    }
+    
+    .generos4{
+        background: url('../images/terror2.jpg') no-repeat;
         width: 200px;
         height: 400px;
         background-size: contain;
