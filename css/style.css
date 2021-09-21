@@ -93,7 +93,6 @@ i.fas.fa-bars {
 
 .main-nav{
     padding-bottom: 4%;
-    display: flex;
 }
 
 .secondary-nav{
@@ -684,6 +683,65 @@ i.fas.fa-pen {
     color: #ffff;
     margin-top: 5%;
     font-size: 1.4rem;
+}
+
+/* genres styles */
+.generos1{
+    background: url('../images/terror1.jpg') no-repeat;
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+        
+}
+.generos2{
+    background: url('../images/accion1.jpg') no-repeat;
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+        
+}
+.generos3{
+    background: url('../images/laliga.jpg') no-repeat;
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+        
+}
+
+.generos4{
+    background: url('../images/terror2.jpg') no-repeat;
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+        
+}
+
+.title-genero{
+    color: #ffff;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.generos-conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 100px;
+    justify-content: space-around;
+    row-gap: 50px;
+}
+
+.title-genre{
+    color: #ffff;
+    background: black;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+}
+
+.link-genre{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (min-width: 480px) and (max-width: 769px) {
