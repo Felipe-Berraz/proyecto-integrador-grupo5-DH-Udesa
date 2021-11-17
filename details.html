@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Detalles</title>
 
     <script src="https://kit.fontawesome.com/1046a69400.js" crossorigin="anonymous"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" href="#">
 </head>
 <body>
-
 
     <header>
         <div class="container-header">
@@ -59,15 +63,35 @@
         </div>
     </header>
 
+    <main class="main-content">
+        <section id="detail-container" class="details">
+            <div class="shadow-details"></div>
+        </section>
 
-    <main>
-        <h1>Géneros Movies</h1>
-        <section id="genres-movies"></section>
-        
-        <h1>Género TV</h1>
-        <section id="genres-series"></section>
+        <h2 class="title-cast">Reparto Principal</h2>
+        <section class="cast-and-info-container">
+            <div>
+                <div id="main-cast-wrapper">
+                    
+                    
+                </div>
+                <div id="collection">
+                    <div class="shadow-collection"></div>
+                </div>
+                <div id="actual-season"></div>
+            </div>
+            <aside id="more-info"></aside>
+           
+        </section>
+
+        <h2>Títulos Simiares</h2>
+        <section id="similar-titles" class="containers-movies-series"></section>
+
     </main>
 
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
     <script src="./js/app.js" type="module"></script>
+    <script src="./js/appFuncs.js"></script>
 </body>
 </html>
