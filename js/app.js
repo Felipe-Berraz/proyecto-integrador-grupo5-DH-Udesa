@@ -1,7 +1,11 @@
 import { 
+    getCastCrew,
+    getGenres, 
     getMoviesSeries, 
     getOneMovieTv, 
     getResultsSearch, 
+    getSimilarTitles, 
+    getTitleSameGenre, 
     getTrendingDay
 } from './actionCreators.js'
 
@@ -43,6 +47,10 @@ switch (actualLocation) {
         let collectionContainer = document.getElementById('collection')
         let actualSeason = document.getElementById('actual-season')
         getOneMovieTv(detailsContainer, mainCastWrapper, asideInfo, collectionContainer, actualSeason)
+
+        // get Similar Titles
+        let similarTitles = document.getElementById('similar-titles')
+        getSimilarTitles(similarTitles)
         break;
     case '/results.html':
         //get Results from search

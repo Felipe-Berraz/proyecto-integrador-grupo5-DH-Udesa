@@ -631,7 +631,6 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
 }
 
 // function to search 
-// function to search 
 export const getResultsSearch = (container) => {
     let queryString = location.search
     let queryStringObj = new URLSearchParams(queryString)
@@ -826,4 +825,205 @@ export const getGenres = (container, path) => {
         .catch(function(error) {
             console.log("Error: " + error);
         })
+}
+
+// function to get All cast and crew
+export const getCastCrew = (container) => {
+    let queryString = location.search
+    let queryStringObj = new URLSearchParams(queryString)
+    let id = queryStringObj.get('id')
+    let title = queryStringObj.get('title')
+    let yearOut = queryStringObj.get('yearOut')
+    let img = queryStringObj.get('img')
+    let path = queryStringObj.get('path')
+    fetch(`${API_URL}${path}/${id}/credits?api_key=${api_key}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            container.innerHTML = 
+            `
+                <div class="return-to-movie-container">
+                    <a class="link-back-movie">
+                        <img
+                            src="https://image.tmdb.org/t/p/w58_and_h87_face${img}"
+                            alt="${title}"
+                        >
+                    </a>
+                    <div class="info-movie-in-cast">
+                        <h2>
+                            <a href="details.html?id=${id}&path=${path}">${title}</a>
+                            <span>(${yearOut})</span>
+                        </h2>
+                        <h3>
+                            <a href="details.html?id=${id}&path=${path}">
+                                ← Volver a principal
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="main-cast-crew-container">
+                    <section class="cast-crew">
+                        <h3>
+                            Reparto
+                            <span>${data.cast.length}</span>
+                        </h3>
+                        <ol id="cast" class="credits"></ol>
+                    </section>
+                    <section class="cast-crew">
+                        <h3>
+                            Equipo
+                            <span>${data.crew.length}</span>
+                        </h3>
+                        <ol id="crew" class="credits"></ol>
+                    </section>
+                </div>
+            `
+            let castContainer = document.getElementById('cast')
+            let crewContainer = document.getElementById('crew')
+
+            data.cast.forEach(cast => {
+                let profile_img = `https://image.tmdb.org/t/p/w66_and_h66_face${cast.profile_path}`
+                let default_profile_img = '../images/icons/default_profile.svg'
+                castContainer.innerHTML += 
+                `
+                    <li>
+                        <a href="castCrewDetails.html?id=${cast.id}">
+                            <img
+                                src="${cast.profile_path != null ? profile_img : default_profile_img}"
+                                alt="${cast.name}"
+                            >
+                        </a>
+                        <div class="info-cast-crew">
+                            <p>
+                                <a href="castCrewDetails.html?id=${cast.id}">
+                                    ${cast.name}
+                                </a>
+                            </p>
+                            <p class="character-job">${cast.character}</p>
+                        </div>
+                    </li>
+                `
+            })
+
+            data.crew.forEach(crew => {
+                let profile_img = `https://image.tmdb.org/t/p/w66_and_h66_face${crew.profile_path}`
+                let default_profile_img = '../images/icons/default_profile.svg'
+                crewContainer.innerHTML += 
+                `
+                    <li>
+                        <a href="castCrewDetails.html?id=${crew.id}">
+                            <img
+                                src="${crew.profile_path != null ? profile_img : default_profile_img}"
+                                alt="${crew.name}"
+                            >
+                        </a>
+                        <div class="info-cast-crew">
+                            <p>
+                                <a href="castCrewDetails.html?id=${crew.id}">
+                                    ${crew.name}
+                                </a>
+                            </p>
+                            <p class="character-job">${crew.job}</p>
+                        </div>
+                    </li>
+                `
+            })
+
+        }) 
+}
+
+// function to get Titles with the same genre
+export const getTitleSameGenre = (container) => {
+    let queryString = location.search
+    let queryStringObj = new URLSearchParams(queryString)
+    let id = queryStringObj.get('id')
+    let path = queryStringObj.get('path')
+    let title = queryStringObj.get('title')
+
+    document.getElementById('title-same-genre').innerHTML = title
+
+    fetch(`${API_URL}discover/${path}?api_key=${api_key}&language=en-US&with_genres=${id}&page=1`)
+
+        .then(response => (response.json()))
+
+        .then(data => {
+
+            data.results.forEach(dataResults => {
+                if(dataResults.poster_path){
+                    container.innerHTML += `
+                    <article class="movie-serie-container">
+                        <a href="details.html?id=${dataResults.id}&path=${dataResults.name ? 'tv' : 'movie'}">
+
+                            <div class="image-container">
+                                <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                <img 
+                                    class="image-poster" 
+                                    src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
+                                    alt="${dataResults.name ? dataResults.name : dataResults.title}"
+                                >
+                                <div class="btn-container">
+                                    <button class="btn-content">
+                                        <img class="btn-play-img img-btn" src="../images/buttons/button-play.png" alt="">
+                                    </button>
+                                    <button class="btn-content btn-add-container">
+                                        <img class="btn-add-img img-btn" src="../images/buttons/add-btn.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <h3 class="title">
+                                ${dataResults.name ? dataResults.name : dataResults.title}
+                            </h3>
+
+                            <p class="release-date">
+                                ${dataResults.name ? dataResults.first_air_date : dataResults.release_date}
+                            </p>
+
+                        </a>
+                    </article>
+                    `
+                }else{
+                    i++
+                    container.innerHTML += 
+                    `
+                    <article class="movie-serie-container">
+                        <a href="details.html?id=${dataResults.id}&path=${dataResults.name ? 'tv' : 'movie'}">
+
+                            <div class="image-container">
+                                <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                <img 
+                                    class="image-poster" 
+                                    src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
+                                    alt="${dataResults.name ? dataResults.name : dataResults.title}"
+                                >
+                                <div class="btn-container">
+                                    <button class="btn-content">
+                                        <img class="btn-play-img img-btn" src="../images/buttons/button-play.png" alt="">
+                                    </button>
+                                    <button class="btn-content btn-add-container">
+                                        <img class="btn-add-img img-btn" src="../images/buttons/add-btn.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <h3 class="title">
+                                ${dataResults.name ? dataResults.name : dataResults.title}
+                            </h3>
+
+                            <p class="release-date">
+                                ${dataResults.name ? dataResults.first_air_date : dataResults.release_date}
+                            </p>
+
+                        </a>
+                    </article>
+                    `
+                    customLengthArray++
+                }
+            });
+        })
+
+        .catch(function(error) {
+            console.log("Error: " + error);
+        })
+
 }
