@@ -813,11 +813,14 @@ export const getGenres = (container, path) => {
         .then(data => {
             data.genres.forEach(genre => {
                 container.innerHTML += `
-                    <li>
-                        <a href="titleSameGenre.html?id=${genre.id}&title=${genre.name}&path=${path === 'tv' ? 'tv' : 'movie'}">
-                            ${genre.name}
-                        </a>
-                    </li>  
+                <article class="movie-serie-container genres-card ${path === 'movie' ? 'genres-movies' : 'genres-tv'}">
+                    <a href="titleSameGenre.html?id=${genre.id}&title=${genre.name}&path=${path}" class="link-genres">
+                        <div class="overlay-color-genres"></div>
+                        <div class="image-container genres-title-container">
+                            <h1 class="genre-title">${genre.name}</h1>
+                        </div>
+                    </a>
+                </article>
                 `
             });
         })

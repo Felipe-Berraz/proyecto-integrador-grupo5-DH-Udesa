@@ -1219,6 +1219,69 @@ ol.people-cast {
     margin-left: 15px;
 }
 
+.genres-card{
+    width: 200px;
+    height: 300px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.genres-movies{
+    background: url('https://image.freepik.com/free-vector/movie-shooting-background_1284-22008.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay-color-genres{
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    background-color: #4361ee;
+    border-radius: 8px;
+    opacity: 0.6;
+}
+
+.genres-tv{
+    background-color: #a0c4ff ;
+    background: url('https://image.freepik.com/free-vector/isometric-illustration-woman-sitting-sofa-watching-film-laptop_1284-58484.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.link-genres{
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+}
+
+.genres-title-container{
+    height: 290px;
+}
+
+#genres-movies, #genres-series {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: space-around;
+}
+
+.genre-title{
+    margin-top: 25px;
+    background: #ffff;
+    padding: 5px 0;
+}
+
+.title-genres-tv{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.title-genres-movies{
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
 
 @media screen and (max-width: 768px) {
     .banner, .shadow{
