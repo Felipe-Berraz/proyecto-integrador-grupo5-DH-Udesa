@@ -631,6 +631,7 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
 }
 
 // function to search 
+// function to search 
 export const getResultsSearch = (container) => {
     let queryString = location.search
     let queryStringObj = new URLSearchParams(queryString)
@@ -643,6 +644,8 @@ export const getResultsSearch = (container) => {
         .then(response => (response.json()))
 
         .then(data => {
+
+            container.style.display = 'none'
 
             data.results.forEach(dataResults => {
                 if(dataResults.poster_path){
@@ -686,4 +689,141 @@ export const getResultsSearch = (container) => {
             console.log("Error: " + error);
         })
 
+        .finally(() => {
+            document.getElementById('loader').style.display = 'none'
+            container.style.display = 'flex'
+        })
+
+}
+
+// function to get Similar Titles
+export const getSimilarTitles = (container) => {
+    /*
+    possible paths:
+        movies --> movie
+        series --> tv
+    */
+
+    let queryString = location.search
+    let queryStringObj = new URLSearchParams(queryString)
+    let id = queryStringObj.get('id')
+    let path = queryStringObj.get('path')
+
+    fetch(`${API_URL}${path}/${id}/similar?api_key=${api_key}&language=en-US&page=1`)
+
+        .then(response => (response.json()))
+
+        .then(data => {
+        
+            let dataResults = data.results
+            let customLengthArray = 10
+            for(let i = 0; i < customLengthArray; i++){
+                if(dataResults[i].poster_path){
+                    container.innerHTML += 
+                    `
+                    <article class="movie-serie-container">
+                                <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
+
+                                    <div class="image-container">
+                                        <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                        <img 
+                                            class="image-poster" 
+                                            src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                            alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
+                                        >
+                                        <div class="btn-container">
+                                            <button class="btn-content">
+                                                <img class="btn-play-img img-btn" src="../images/buttons/button-play.png" alt="">
+                                            </button>
+                                            <button class="btn-content btn-add-container">
+                                                <img class="btn-add-img img-btn" src="../images/buttons/add-btn.png" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="title">
+                                        ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
+                                    </h3>
+
+                                    <p class="release-date">
+                                        ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
+                                    </p>
+
+                                </a>
+                            </article>
+                    `
+                }else{
+                    i++
+                    container.innerHTML += 
+                    `
+                    <article class="movie-serie-container">
+                        <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
+
+                            <div class="image-container">
+                                <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                <img 
+                                    class="image-poster" 
+                                    src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                    alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
+                                >
+                                <div class="btn-container">
+                                    <button class="btn-content">
+                                        <img class="btn-play-img img-btn" src="../images/buttons/button-play.png" alt="">
+                                    </button>
+                                    <button class="btn-content btn-add-container">
+                                        <img class="btn-add-img img-btn" src="../images/buttons/add-btn.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <h3 class="title">
+                                ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
+                            </h3>
+
+                            <p class="release-date">
+                                ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
+                            </p>
+
+                        </a>
+                    </article>
+                    `
+                    customLengthArray++
+                }
+
+            }
+        
+        })
+
+        .catch(function(error) {
+            console.log("Error: " + error);
+        })
+}
+
+// function to get the all the Genres
+export const getGenres = (container, path) => {
+    /*
+    possible paths:
+        movies genres --> movie
+        tv genres --> tv
+    */
+
+    fetch(`${API_URL}genre/${path}/list?api_key=${api_key}&language=en-US`)
+    
+        .then(response => {return response.json()})
+
+        .then(data => {
+            data.genres.forEach(genre => {
+                container.innerHTML += `
+                    <li>
+                        <a href="titleSameGenre.html?id=${genre.id}&title=${genre.name}&path=${path === 'tv' ? 'tv' : 'movie'}">
+                            ${genre.name}
+                        </a>
+                    </li>  
+                `
+            });
+        })
+
+        .catch(function(error) {
+            console.log("Error: " + error);
+        })
 }

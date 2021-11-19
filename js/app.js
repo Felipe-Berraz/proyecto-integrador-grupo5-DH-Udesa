@@ -49,6 +49,24 @@ switch (actualLocation) {
         let searchResultsContainer = document.getElementById('results-container')
         getResultsSearch(searchResultsContainer)
         break;
+    case '/castCrew.html': //santi
+        let castCrewContainer = document.getElementById('cast-crew-container')
+        getCastCrew(castCrewContainer)
+        break;
+    case '/genres.html':
+        // get Genres Movies
+        let genresMoviesContainer = document.getElementById('genres-movies')
+        getGenres(genresMoviesContainer, 'movie')
+
+        // get Genres Series
+        let genresSeriesContainer = document.getElementById('genres-series')
+        getGenres(genresSeriesContainer, 'tv')
+        break;
+    case '/titleSameGenre.html':
+        //get Titles with the same genre
+        let titleSameGenreContainer = document.getElementById('title-same-genre-container')
+        getTitleSameGenre(titleSameGenreContainer)
+        break;
     default:
         break;
 }
