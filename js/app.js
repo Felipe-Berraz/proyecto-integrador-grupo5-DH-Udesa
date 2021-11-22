@@ -39,6 +39,25 @@ switch (actualLocation) {
         let trendingToday = document.getElementById('trending-today')
         getTrendingDay(trendingToday)
         break;
+    case '/series.html':
+        // get Top Rated Series
+        let topRatedContainerTvHTML = document.getElementById('top-rated-series')
+        getMoviesSeries(topRatedContainerTvHTML, 'tv/top_rated', 'movie')
+
+        // get Popular Series
+        let popularSeriesContainerHTML = document.getElementById('popular-series')
+        getMoviesSeries(popularSeriesContainerHTML, 'tv/popular', 'tv')
+
+        break;
+    case '/movies.html':
+        // get Top Rated Movies
+        let topRatedContainerMoviesHTML = document.getElementById('top-rated-movies')
+        getMoviesSeries(topRatedContainerMoviesHTML, 'movie/top_rated', 'movie')
+
+        // get Popular Movies
+        let popularMoviesContainerHTML = document.getElementById('popular-movies')
+        getMoviesSeries(popularMoviesContainerHTML, 'movie/popular', 'movie')
+        break;
     case '/details.html':
         //get Movie or Serie
         let detailsContainer = document.getElementById('detail-container')
