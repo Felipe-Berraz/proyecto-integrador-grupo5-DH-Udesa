@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <div class="bg-scroll-nav" id="scroll-bg-header-nav"></div>
+            <div class="mobile-nav-top">
+                <img class="logo" src="./images/icons/palomitas-de-maiz.png" alt="logo">
+                <button class="btn-burger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-container">
+                <ul class="main-nav">
+                    <li class="list-item-nav"><a class="links nav-links" href="index.html">Inicio</a></li>
+                    <li class="list-item-nav"><a class="links nav-links" href="series.html">Series</a></li>
+                    <li class="list-item-nav"><a class="links nav-links" href="movies.html">Películas</a></li>
+                    <li class="list-item-nav"><a class="links nav-links" href="genres.html">Géneros</a></li>
+                    <li class="list-item-nav"><a class="links nav-links" href="favorite.html">Favoritos</a></li>
+                </ul>
+                <ul class="secondary-nav">
+                    <li class="list-item-nav"><a class="links" href="#">Acción</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Animación</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Comedia</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Crimen</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Documentales</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Drama</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Fantasía y Ciencia Ficción</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Terror y Suspenso</a></li>
+                    <li class="list-item-nav"><a class="links" href="#">Romance</a></li>
+                </ul>
+            </nav>
+            <div class="container-search-bar-profile">
+                <form action="results.html" class="search-bar-container" method="GET">
+                    <input 
+                        id="input-search-bar" 
+                        class="search-bar-input" 
+                        type="text" 
+                        name="q" 
+                        placeholder="Títulos, series, géneros">
+                    <button id="btn-search-bar" class="search-bar-button" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <a class="links user-img-container" href="profile.html"><img class="user-img" src="images/icons/user.svg" alt="user"></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="title-favorites">Favoritos</h1>
+        <section class="containers-movies-series" id="favorites-container"></section>
+    </main>
+    
+
+    <script src="./js/favorites.js"></script>
+</body>
+</html>
