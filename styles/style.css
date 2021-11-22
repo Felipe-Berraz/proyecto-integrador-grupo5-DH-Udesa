@@ -260,6 +260,28 @@ form{
     display: none;
 }
 
+.integrantes{
+    margin-left: 20px;
+}
+
+.integrantes ul li{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.img-container-footer {
+    width: 20%;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+}
+
+footer div ul{
+    list-style: none;
+}
+
 h2{
     margin-top: 5%;
 }
