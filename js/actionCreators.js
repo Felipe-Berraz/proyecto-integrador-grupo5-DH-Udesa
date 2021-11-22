@@ -19,20 +19,6 @@ export const getMoviesSeries = (container, path, use) => {
         
         .then((data) => {
             let dataResults = data.results
-            var imgAdd = 
-                `
-                    <img
-                        class="img-btn"
-                        src="../images/buttons/add-btn.png"
-                    >
-                `
-            var imgRemove = 
-            `
-                <img
-                    class="img-btn remove-btn"
-                    src="../images/buttons/signo-menos.png"
-                >
-            `
             if(use === 'banner'){
                 let customLengthArray = 1
                 
@@ -460,8 +446,6 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
                 if(localStorage.length > 0){
                     favorites = JSON.parse(localStorage.getItem('favoritesToString'));
                     var isFavorite = favorites.find(el => el[0] == id);
-                    console.log(isFavorite)
-                    console.log(favorites)
                 }
 
                 let btnFav = document.querySelector('.btn-fav');

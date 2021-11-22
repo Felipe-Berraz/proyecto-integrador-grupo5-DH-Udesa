@@ -253,6 +253,13 @@ form{
     padding: 5px;
 }
 
+#msg-error{
+    color: red;
+    margin-top: 35px;
+    font-size: 0.8rem;
+    display: none;
+}
+
 h2{
     margin-top: 5%;
 }

@@ -47,13 +47,14 @@
                 </ul>
             </nav>
             <div class="container-search-bar-profile">
-                <form action="results.html" class="search-bar-container" method="GET">
+                <form action="results.html" class="search-bar-container" id="form" method="GET">
                     <input 
                         id="input-search-bar" 
                         class="search-bar-input" 
                         type="text" 
                         name="q" 
                         placeholder="Títulos, series, géneros">
+                        <p id="msg-error">El término buscado debe tener al menos 3 caracteres</p>
                     <button id="btn-search-bar" class="search-bar-button" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
