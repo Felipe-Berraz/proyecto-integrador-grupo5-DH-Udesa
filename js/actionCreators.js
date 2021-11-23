@@ -655,7 +655,7 @@ export const getResultsSearch = (container) => {
     let queryStringObj = new URLSearchParams(queryString)
     let q = queryStringObj.get('q')
 
-    document.getElementById('title-search').innerHTML = q
+    document.getElementById('title-search').innerHTML = `Títulos Relacionados con: ${q}`
 
     fetch(`${API_URL}search/multi?api_key=${api_key}&language=en-US&query=${q}&page=1&include_adult=false`)
 
