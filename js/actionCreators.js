@@ -2,7 +2,7 @@ const API_URL = 'https://api.themoviedb.org/3/'
 const api_key = '17ce6bcdb53e4b3bd9247e8cf4166426'
 
 // function to get the Movies and TV Series for the Index
-export const getMoviesSeries = (container, path, use) => {
+export const getMoviesSeries = function(container, path, use) {
     /*
     possible paths:
         top_rated movies --> movie/top_rated
@@ -17,7 +17,7 @@ export const getMoviesSeries = (container, path, use) => {
             return response.json()
         })
         
-        .then((data) => {
+        .then(function(data) {
             let dataResults = data.results
             if(use === 'banner'){
                 let customLengthArray = 1
@@ -41,7 +41,7 @@ export const getMoviesSeries = (container, path, use) => {
                                     <button class="btn-more-info">
                                         <a 
                                             class="links link-more-info" 
-                                            href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
+                                            href="details.html?id=${dataResults[i].id}&path=${use}">
                                             MÁS INFO
                                         </a>
                                     </button>
@@ -51,65 +51,128 @@ export const getMoviesSeries = (container, path, use) => {
                     `
                 }
             }else{
-                let customLengthArray = 10
-                for(let i = 0; i < customLengthArray; i++){
-                    if(dataResults[i].poster_path && dataResults[i].backdrop_path){
-                        container.innerHTML += 
-                        `
-                            <article class="movie-serie-container">
-                                <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
-
-                                    <div class="image-container">
-                                        <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
-                                        <img 
-                                            class="image-poster" 
-                                            src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
-                                            alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
-                                        >
-                                        
-                                    </div>
-
-                                    <h3 class="title">
-                                        ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
-                                    </h3>
-
-                                    <p class="release-date">
-                                        ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
-                                    </p>
-
-                                </a>
-                              
-                            </article>
-                        `
-                    }else{
-                        i++
-                        container.innerHTML += `
-                            <article class="movie-serie-container">
-                                <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
-
-                                    <div class="image-container">
-                                        <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
-                                        <img 
-                                            class="image-poster" 
-                                            src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
-                                            alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
-                                        >
-                                    </div>
-
-                                    <h3 class="title">
-                                        ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
-                                    </h3>
-
-                                    <p class="release-date">
-                                        ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
-                                    </p>
-                                </a>
-                                
-                            </article>
-                        `
-                        customLengthArray++
+                if(use === 'movie'){
+                    let customLengthArray = 10
+                    for(let i = 0; i < customLengthArray; i++){
+                        if(dataResults[i].poster_path && dataResults[i].backdrop_path){
+                            container.innerHTML += 
+                            `
+                                <article class="movie-serie-container">
+                                    <a href="details.html?id=${dataResults[i].id}&path=${use}">
+    
+                                        <div class="image-container">
+                                            <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                            <img 
+                                                class="image-poster" 
+                                                src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                                alt="${dataResults[i].title}"
+                                            >
+                                            
+                                        </div>
+    
+                                        <h3 class="title">
+                                            ${dataResults[i].title}
+                                        </h3>
+    
+                                        <p class="release-date">
+                                            ${dataResults[i].release_date}
+                                        </p>
+    
+                                    </a>
+                                  
+                                </article>
+                            `
+                        }else{
+                            i++
+                            container.innerHTML += `
+                                <article class="movie-serie-container">
+                                    <a href="details.html?id=${dataResults[i].id}&path=${use}">
+    
+                                        <div class="image-container">
+                                            <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                            <img 
+                                                class="image-poster" 
+                                                src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                                alt="${dataResults[i].title}"
+                                            >
+                                        </div>
+    
+                                        <h3 class="title">
+                                            ${dataResults[i].title}
+                                        </h3>
+    
+                                        <p class="release-date">
+                                            ${dataResults[i].release_date}
+                                        </p>
+                                    </a>
+                                    
+                                </article>
+                            `
+                            customLengthArray++
+                        }
+                    }
+                }else{
+                    let customLengthArray = 10
+                    for(let i = 0; i < customLengthArray; i++){
+                        if(dataResults[i].poster_path && dataResults[i].backdrop_path){
+                            container.innerHTML += 
+                            `
+                                <article class="movie-serie-container">
+                                    <a href="details.html?id=${dataResults[i].id}&path=${use}">
+    
+                                        <div class="image-container">
+                                            <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                            <img 
+                                                class="image-poster" 
+                                                src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                                alt="${dataResults[i].name}"
+                                            >
+                                            
+                                        </div>
+    
+                                        <h3 class="title">
+                                            ${dataResults[i].name}
+                                        </h3>
+    
+                                        <p class="release-date">
+                                            ${dataResults[i].first_air_date}
+                                        </p>
+    
+                                    </a>
+                                  
+                                </article>
+                            `
+                        }else{
+                            i++
+                            container.innerHTML += `
+                                <article class="movie-serie-container">
+                                    <a href="details.html?id=${dataResults[i].id}&path=${use}">
+    
+                                        <div class="image-container">
+                                            <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                            <img 
+                                                class="image-poster" 
+                                                src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                                alt="${dataResults[i].name}"
+                                            >
+                                        </div>
+    
+                                        <h3 class="title">
+                                            ${dataResults[i].name}
+                                        </h3>
+    
+                                        <p class="release-date">
+                                            ${dataResults[i].first_air_date}
+                                        </p>
+                                    </a>
+                                    
+                                </article>
+                            `
+                            customLengthArray++
+                        }
                     }
                 }
+                
             }
         })
 
@@ -121,32 +184,34 @@ export const getMoviesSeries = (container, path, use) => {
 // get trending movies
 export const getTrendingDay = (container) => {
     fetch(`${API_URL}trending/all/day?api_key=${api_key}`)
-        .then(response => response.json())
-        .then(data => {
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
             let dataResults = data.results
             let customLengthArray = 5
                 for(let i = 0; i < customLengthArray; i++){
-                    if(dataResults[i].poster_path && dataResults[i].backdrop_path){
+                    if(dataResults[i].poster_path && dataResults[i].backdrop_path && dataResults[i].title){
                         container.innerHTML += 
                         `
                             <article class="movie-serie-container">
-                                <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
+                                <a href="details.html?id=${dataResults[i].id}&path=${'movie'}">
 
                                     <div class="image-container">
                                         <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
                                         <img 
                                             class="image-poster" 
                                             src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
-                                            alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
+                                            alt="${dataResults[i].title}"
                                         >
                                     </div>
 
                                     <h3 class="title">
-                                        ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
+                                        ${dataResults[i].title}
                                     </h3>
 
                                     <p class="release-date">
-                                        ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
+                                        ${dataResults[i].release_date}
                                     </p>
 
                                 </a>
@@ -157,23 +222,23 @@ export const getTrendingDay = (container) => {
                         i++
                         container.innerHTML += `
                             <article class="movie-serie-container">
-                                <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
+                                <a href="details.html?id=${dataResults[i].id}&path=${'movie'}">
 
                                     <div class="image-container">
                                         <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
                                         <img 
                                             class="image-poster" 
                                             src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
-                                            alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
+                                            alt="${dataResults[i].title}"
                                         >
                                     </div>
 
                                     <h3 class="title">
-                                        ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
+                                        ${dataResults[i].title}
                                     </h3>
 
                                     <p class="release-date">
-                                        ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
+                                        ${dataResults[i].release_date}
                                     </p>
 
                                 </a>
@@ -201,8 +266,10 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
         var srcProvider
 
         fetch(`${API_URL}${path}/${id}/watch/providers?api_key=${api_key}`)
-            .then(response => response.json())
-            .then(data => {          
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(data) {          
                 if(Object.keys(data.results).length === 0){
                     srcProvider = 'https://www.themoviedb.org/t/p/original/db6NofOblrtYcwH9qXuzyMf68Ao.jpg'
                 }else if('US' in data.results){
@@ -227,8 +294,10 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
             })
         
         fetch(`${API_URL}${path}/${id}?api_key=${api_key}&append_to_response=videos,credits,keywords,release_dates`)
-            .then(response => response.json())
-            .then(data => {            
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(data) {            
                 //get age certification
                 var ageCertification
                 if(path === 'movie'){
@@ -270,15 +339,15 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
 
                 //get genres
                 let genres = [];
-                data.genres.forEach(genre => {
+                for(let i = 0; i < data.genres.length; i++){
                     genres.push(
                         `
-                            <a href="titleSameGenre.html?id=${genre.id}&title=${genre.name}&path=${path === 'tv' ? 'tv' : 'movie'}">
-                                ${genre.name}
+                            <a href="titleSameGenre.html?id=${data.genres[i].id}&title=${data.genres[i].name}&path=${path}">
+                                ${data.genres[i].name}
                             </a>
                         `
                     )
-                });
+                }
 
 
                 // get crew
@@ -309,7 +378,11 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
 
                 //get release year
                 let date;
-                path === 'tv' ? date = new Date(data.first_air_date) : date = new Date(data.release_date)
+                if (path === 'tv'){
+                    date = new Date(data.first_air_date)
+                }else{
+                    date = new Date(data.release_date)
+                }
                 let yearOut = date.getFullYear()
 
                 //get runtime
@@ -318,7 +391,12 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
                 let minutes = (hours -hoursFixed) * 60
                 let minutesFixed = Math.floor(minutes)
 
-                let duration = path === 'movie' ? `${hoursFixed}h ${minutesFixed}m` : `${data.episode_run_time[0]}m`
+                let duration
+                if(path === 'movie'){
+                    duration = `${hoursFixed}h ${minutesFixed}m`
+                }else{
+                    duration = `${data.episode_run_time[0]}m`
+                }
 
                 //display content
                 var imgAdd = 
@@ -492,17 +570,35 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
 
                 //cast 
                 let castData = data.credits.cast
-                let length = castData.length > 5 ? 6 : castData.length
-                wrapperCast.innerHTML = 
-                `
-                    <ol id="list-cast" class="people-cast"></ol>
-                    <p class="btn-all-seasons">
-                        <a 
-                            href="castCrew.html?id=${data.id}&title=${path === 'tv' ? data.name : data.title}&yearOut=${yearOut}&img=${data.poster_path}&path=${path}">
-                            Reparto y equipo completo
-                        </a>
-                    </p>
-                `
+                let length
+                if(castData.length > 5){
+                    length = 6
+                }else{
+                    length = castData.length
+                }
+                if(path === 'tv'){
+                    wrapperCast.innerHTML = 
+                    `
+                        <ol id="list-cast" class="people-cast"></ol>
+                        <p class="btn-all-seasons">
+                            <a 
+                                href="castCrew.html?id=${data.id}&title=${data.name}&yearOut=${yearOut}&img=${data.poster_path}&path=${path}">
+                                Reparto y equipo completo
+                            </a>
+                        </p>
+                    `
+                }else{
+                    wrapperCast.innerHTML = 
+                    `
+                        <ol id="list-cast" class="people-cast"></ol>
+                        <p class="btn-all-seasons">
+                            <a 
+                                href="castCrew.html?id=${data.id}&title=${data.title}&yearOut=${yearOut}&img=${data.poster_path}&path=${path}">
+                                Reparto y equipo completo
+                            </a>
+                        </p>
+                    `
+                }
                 for(let i = 0; i < length; i++){
                     document.getElementById('list-cast').innerHTML += 
                         `
@@ -559,34 +655,68 @@ export const getOneMovieTv = (container, wrapperCast, asideInfo, collection, act
                     }
                 }
 
-                asideInfo.innerHTML = 
-                `
-                    <section class="info-wrapper">
-                        <p>
-                            <strong>Título original</strong>
-                            ${path === 'movie' ? data.original_title : data.original_name}
-                        </p>
-                        <p>
-                            <strong>Idioma original</strong>
-                            ${original_language}
-                        </p>
-                        ${path === 'movie' ? moneyMovie : serieInfo}
-                        <p>
-                            <strong>Status</strong>
-                            ${data.status}
-                        </p>
-                    </section>
-                    <section>
-                        <h4 class="title-aside">Palabras claves</h4>
-                        <ul id="keywords">
+                if(path === 'movie'){
+                    asideInfo.innerHTML = 
+                    `
+                        <section class="info-wrapper">
+                            <p>
+                                <strong>Título original</strong>
+                                ${data.original_title}
+                            </p>
+                            <p>
+                                <strong>Idioma original</strong>
+                                ${original_language}
+                            </p>
+                            ${moneyMovie}
+                            <p>
+                                <strong>Status</strong>
+                                ${data.status}
+                            </p>
+                        </section>
+                        <section>
+                            <h4 class="title-aside">Palabras claves</h4>
+                            <ul id="keywords">
 
-                        </ul>
-                    </section>
-                `
+                            </ul>
+                        </section>
+                    `
+                }else{
+                    asideInfo.innerHTML = 
+                    `
+                        <section class="info-wrapper">
+                            <p>
+                                <strong>Título original</strong>
+                                ${data.original_name}
+                            </p>
+                            <p>
+                                <strong>Idioma original</strong>
+                                ${original_language}
+                            </p>
+                            ${serieInfo}
+                            <p>
+                                <strong>Status</strong>
+                                ${data.status}
+                            </p>
+                        </section>
+                        <section>
+                            <h4 class="title-aside">Palabras claves</h4>
+                            <ul id="keywords">
+
+                            </ul>
+                        </section>
+                    `
+                }
 
                 let keywords = document.getElementById('keywords')
-                let pathKeywords = path === 'tv' ? data.keywords.results : data.keywords.keywords
-                let lengthKeywords = path === 'tv' ? pathKeywords.length : pathKeywords.length
+                let pathKeywords
+                let lengthKeywords
+                if(path === 'tv'){
+                    pathKeywords = data.keywords.results
+                    lengthKeywords = pathKeywords.length
+                }else{
+                    pathKeywords = data.keywords.keywords
+                    lengthKeywords = pathKeywords.length
+                }
 
                 for(let i = 0; i < lengthKeywords; i++){
                     keywords.innerHTML += `
@@ -659,41 +789,74 @@ export const getResultsSearch = (container) => {
 
     fetch(`${API_URL}search/multi?api_key=${api_key}&language=en-US&query=${q}&page=1&include_adult=false`)
 
-        .then(response => (response.json()))
+        .then(function(response){
+            return (response.json())
+        })
 
-        .then(data => {
+        .then(function(data) {
 
             container.style.display = 'none'
+            let dataResults = data.results
 
-            data.results.forEach(dataResults => {
-                if(dataResults.poster_path){
-                    container.innerHTML += `
-                    <article class="movie-serie-container">
-                        <a href="details.html?id=${dataResults.id}&path=${dataResults.name ? 'tv' : 'movie'}">
+            for(let i = 0; i < dataResults.length; i++){
+                if(dataResults[i].poster_path){
+                    if(dataResults[i].name){
+                        container.innerHTML += 
+                        `
+                            <article class="movie-serie-container">
+                                <a href="details.html?id=${dataResults[i].id}&path=tv">
 
-                            <div class="image-container">
-                                <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
-                                <img 
-                                    class="image-poster" 
-                                    src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
-                                    alt="${dataResults.name ? dataResults.name : dataResults.title}"
-                                >
-                                
-                            </div>
+                                    <div class="image-container">
+                                        <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                        <img 
+                                            class="image-poster" 
+                                            src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                            alt="${dataResults[i].name}"
+                                        >
 
-                            <h3 class="title">
-                                ${dataResults.name ? dataResults.name : dataResults.title}
-                            </h3>
+                                    </div>
 
-                            <p class="release-date">
-                                ${dataResults.name ? dataResults.first_air_date : dataResults.release_date}
-                            </p>
+                                    <h3 class="title">
+                                        ${dataResults[i].name}
+                                    </h3>
 
-                        </a>
-                    </article>
-                `
+                                    <p class="release-date">
+                                        ${dataResults[i].first_air_date}
+                                    </p>
+
+                                </a>
+                            </article>
+                        `
+                    }else{
+                        container.innerHTML += 
+                        `
+                            <article class="movie-serie-container">
+                                <a href="details.html?id=${dataResults[i].id}&path=movie">
+
+                                    <div class="image-container">
+                                        <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                        <img 
+                                            class="image-poster" 
+                                            src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                            alt="${dataResults[i].title}"
+                                        >
+
+                                    </div>
+
+                                    <h3 class="title">
+                                        ${dataResults[i].title}
+                                    </h3>
+
+                                    <p class="release-date">
+                                        ${dataResults[i].release_date}
+                                    </p>
+
+                                </a>
+                            </article>
+                        `
+                    }
                 }
-            });            
+            }           
         })
 
         .catch(function(error) {
@@ -722,71 +885,72 @@ export const getSimilarTitles = (container) => {
 
     fetch(`${API_URL}${path}/${id}/similar?api_key=${api_key}&language=en-US&page=1`)
 
-        .then(response => (response.json()))
+        .then(function(response) {
+            return (response.json())
+        })
 
-        .then(data => {
+        .then(function(data) {
         
             let dataResults = data.results
             let customLengthArray = 10
             for(let i = 0; i < customLengthArray; i++){
                 if(dataResults[i].poster_path){
-                    container.innerHTML += 
-                    `
-                    <article class="movie-serie-container">
-                                <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
+                    if(dataResults[i].name){
+                        container.innerHTML += 
+                        `
+                        <article class="movie-serie-container">
+                                    <a href="details.html?id=${dataResults[i].id}&path=tv">
 
-                                    <div class="image-container">
-                                        <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
-                                        <img 
-                                            class="image-poster" 
-                                            src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
-                                            alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
-                                        >
-                                        
-                                    </div>
+                                        <div class="image-container">
+                                            <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                            <img 
+                                                class="image-poster" 
+                                                src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                                alt="${dataResults[i].name}"
+                                            >
 
-                                    <h3 class="title">
-                                        ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
-                                    </h3>
+                                        </div>
 
-                                    <p class="release-date">
-                                        ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
-                                    </p>
+                                        <h3 class="title">
+                                            ${dataResults[i].name}
+                                        </h3>
 
-                                </a>
-                            </article>
-                    `
-                }else{
-                    i++
-                    container.innerHTML += 
-                    `
-                    <article class="movie-serie-container">
-                        <a href="details.html?id=${dataResults[i].id}&path=${dataResults[i].name ? 'tv' : 'movie'}">
+                                        <p class="release-date">
+                                            ${dataResults[i].first_air_date}
+                                        </p>
 
-                            <div class="image-container">
-                                <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
-                                <img 
-                                    class="image-poster" 
-                                    src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
-                                    alt="${dataResults[i].name ? dataResults[i].name : dataResults[i].title}"
-                                >
-                                
-                            </div>
+                                    </a>
+                                </article>
+                        `
+                    }else{
+                        container.innerHTML += 
+                        `
+                        <article class="movie-serie-container">
+                            <a href="details.html?id=${dataResults[i].id}&path=movie">
 
-                            <h3 class="title">
-                                ${dataResults[i].name ? dataResults[i].name : dataResults[i].title}
-                            </h3>
+                                <div class="image-container">
+                                    <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                    <img 
+                                        class="image-poster" 
+                                        src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                        alt="${dataResults[i].title}"
+                                    >
 
-                            <p class="release-date">
-                                ${dataResults[i].name ? dataResults[i].first_air_date : dataResults[i].release_date}
-                            </p>
+                                </div>
 
-                        </a>
-                    </article>
-                    `
-                    customLengthArray++
+                                <h3 class="title">
+                                    ${dataResults[i].title}
+                                </h3>
+
+                                <p class="release-date">
+                                    ${dataResults[i].release_date}
+                                </p>
+
+                            </a>
+                        </article>
+                        `
+                    }
                 }
-
             }
         
         })
@@ -806,21 +970,38 @@ export const getGenres = (container, path) => {
 
     fetch(`${API_URL}genre/${path}/list?api_key=${api_key}&language=en-US`)
     
-        .then(response => {return response.json()})
+        .then(function(response) {
+            return response.json()
+        })
 
-        .then(data => {
-            data.genres.forEach(genre => {
-                container.innerHTML += `
-                <article class="movie-serie-container genres-card ${path === 'movie' ? 'genres-movies' : 'genres-tv'}">
-                    <a href="titleSameGenre.html?id=${genre.id}&title=${genre.name}&path=${path}" class="link-genres">
-                        <div class="overlay-color-genres"></div>
-                        <div class="image-container genres-title-container">
-                            <h1 class="genre-title">${genre.name}</h1>
-                        </div>
-                    </a>
-                </article>
-                `
-            });
+        .then(function(data){
+            let dataGenres = data.genres
+
+            for(let i = 0; i < dataGenres.length; i++){
+                if(path === 'movie'){
+                    container.innerHTML += `
+                    <article class="movie-serie-container genres-card genres-movies">
+                        <a href="titleSameGenre.html?id=${dataGenres[i].id}&title=${dataGenres[i].name}&path=${path}" class="link-genres">
+                            <div class="overlay-color-genres"></div>
+                            <div class="image-container genres-title-container">
+                                <h1 class="genre-title">${dataGenres[i].name}</h1>
+                            </div>
+                        </a>
+                    </article>
+                    `
+                }else{
+                    container.innerHTML += `
+                    <article class="movie-serie-container genres-card genres-tv">
+                        <a href="titleSameGenre.html?id=${dataGenres[i].id}&title=${dataGenres[i].name}&path=${path}" class="link-genres">
+                            <div class="overlay-color-genres"></div>
+                            <div class="image-container genres-title-container">
+                                <h1 class="genre-title">${dataGenres[i].name}</h1>
+                            </div>
+                        </a>
+                    </article>
+                    `
+                }
+            }
         })
 
         .catch(function(error) {
@@ -838,9 +1019,10 @@ export const getCastCrew = (container) => {
     let img = queryStringObj.get('img')
     let path = queryStringObj.get('path')
     fetch(`${API_URL}${path}/${id}/credits?api_key=${api_key}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
             container.innerHTML = 
             `
                 <div class="return-to-movie-container">
@@ -882,54 +1064,66 @@ export const getCastCrew = (container) => {
             let castContainer = document.getElementById('cast')
             let crewContainer = document.getElementById('crew')
 
-            data.cast.forEach(cast => {
-                let profile_img = `https://image.tmdb.org/t/p/w66_and_h66_face${cast.profile_path}`
+            for(let i = 0; i < data.cast.length; i++){
+                let profile_img = `https://image.tmdb.org/t/p/w66_and_h66_face${data.cast[i].profile_path}`
                 let default_profile_img = '../images/icons/default_profile.svg'
+                let imageCast
+                if(data.cast[i].profile_path != null){
+                    imageCast = profile_img
+                }else{
+                    imageCast = default_profile_img
+                }
                 castContainer.innerHTML += 
                 `
                     <li>
-                        <a href="castCrewDetails.html?id=${cast.id}">
+                        <a href="castCrewDetails.html?id=${data.cast[i].id}">
                             <img
-                                src="${cast.profile_path != null ? profile_img : default_profile_img}"
-                                alt="${cast.name}"
+                                src="${ imageCast }"
+                                alt="${data.cast[i].name}"
                             >
                         </a>
                         <div class="info-cast-crew">
                             <p>
-                                <a href="castCrewDetails.html?id=${cast.id}">
-                                    ${cast.name}
+                                <a href="castCrewDetails.html?id=${data.cast[i].id}">
+                                    ${data.cast[i].name}
                                 </a>
                             </p>
-                            <p class="character-job">${cast.character}</p>
+                            <p class="character-job">${data.cast[i].character}</p>
                         </div>
                     </li>
                 `
-            })
+            }
 
-            data.crew.forEach(crew => {
-                let profile_img = `https://image.tmdb.org/t/p/w66_and_h66_face${crew.profile_path}`
+
+            for(let i = 0; i < data.crew.length; i++){
+                let profile_img = `https://image.tmdb.org/t/p/w66_and_h66_face${data.crew[i].profile_path}`
                 let default_profile_img = '../images/icons/default_profile.svg'
+                let imageCrew
+                if(data.crew[i].profile_path != null){
+                    imageCrew = profile_img
+                }else{
+                    imageCrew = default_profile_img
+                }
                 crewContainer.innerHTML += 
                 `
                     <li>
-                        <a href="castCrewDetails.html?id=${crew.id}">
+                        <a href="castCrewDetails.html?id=${data.crew[i].id}">
                             <img
-                                src="${crew.profile_path != null ? profile_img : default_profile_img}"
-                                alt="${crew.name}"
+                                src="${ imageCrew }"
+                                alt="${data.crew[i].name}"
                             >
                         </a>
                         <div class="info-cast-crew">
                             <p>
-                                <a href="castCrewDetails.html?id=${crew.id}">
-                                    ${crew.name}
+                                <a href="castCrewDetails.html?id=${data.crew[i].id}">
+                                    ${data.crew[i].name}
                                 </a>
                             </p>
-                            <p class="character-job">${crew.job}</p>
+                            <p class="character-job">${data.crew[i].job}</p>
                         </div>
                     </li>
                 `
-            })
-
+            }
         }) 
 }
 
@@ -945,68 +1139,130 @@ export const getTitleSameGenre = (container) => {
 
     fetch(`${API_URL}discover/${path}?api_key=${api_key}&language=en-US&with_genres=${id}&page=1`)
 
-        .then(response => (response.json()))
+        .then(function(response) {
+            return (response.json())
+        })
 
-        .then(data => {
+        .then(function(data) {
+            let dataResults = data.results
 
-            data.results.forEach(dataResults => {
-                if(dataResults.poster_path){
-                    container.innerHTML += `
-                    <article class="movie-serie-container">
-                        <a href="details.html?id=${dataResults.id}&path=${dataResults.name ? 'tv' : 'movie'}">
-
-                            <div class="image-container">
-                                <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
-                                <img 
-                                    class="image-poster" 
-                                    src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
-                                    alt="${dataResults.name ? dataResults.name : dataResults.title}"
-                                >
-                                
-                            </div>
-
-                            <h3 class="title">
-                                ${dataResults.name ? dataResults.name : dataResults.title}
-                            </h3>
-
-                            <p class="release-date">
-                                ${dataResults.name ? dataResults.first_air_date : dataResults.release_date}
-                            </p>
-
-                        </a>
-                    </article>
-                    `
+            for(let i = 0; i < dataResults.length; i++){
+                if(path === 'movie'){
+                    if(dataResults[i].poster_path){
+                        container.innerHTML += `
+                        <article class="movie-serie-container">
+                            <a href="details.html?id=${dataResults[i].id}&path=movie">
+    
+                                <div class="image-container">
+                                    <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                    <img 
+                                        class="image-poster" 
+                                        src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                        alt="${dataResults[i].title}"
+                                    >
+                                    
+                                </div>
+    
+                                <h3 class="title">
+                                    ${dataResults[i].title}
+                                </h3>
+    
+                                <p class="release-date">
+                                    ${dataResults[i].release_date}
+                                </p>
+    
+                            </a>
+                        </article>
+                        `
+                    }else{
+                        i++
+                        container.innerHTML += 
+                        `
+                        <article class="movie-serie-container">
+                            <a href="details.html?id=${dataResults[i].id}&path=movie">
+    
+                                <div class="image-container">
+                                    <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                    <img 
+                                        class="image-poster" 
+                                        src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                        alt="${dataResults[i].title}"
+                                    >
+                                    
+                                </div>
+    
+                                <h3 class="title">
+                                    ${dataResults[i].title}
+                                </h3>
+    
+                                <p class="release-date">
+                                    ${dataResults[i].release_date}
+                                </p>
+    
+                            </a>
+                        </article>
+                        `
+                        customLengthArray++
+                    }
                 }else{
-                    i++
-                    container.innerHTML += 
-                    `
-                    <article class="movie-serie-container">
-                        <a href="details.html?id=${dataResults.id}&path=${dataResults.name ? 'tv' : 'movie'}">
-
-                            <div class="image-container">
-                                <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
-                                <img 
-                                    class="image-poster" 
-                                    src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
-                                    alt="${dataResults.name ? dataResults.name : dataResults.title}"
-                                >
-                                
-                            </div>
-
-                            <h3 class="title">
-                                ${dataResults.name ? dataResults.name : dataResults.title}
-                            </h3>
-
-                            <p class="release-date">
-                                ${dataResults.name ? dataResults.first_air_date : dataResults.release_date}
-                            </p>
-
-                        </a>
-                    </article>
-                    `
-                    customLengthArray++
+                    if(dataResults[i].poster_path){
+                        container.innerHTML += `
+                        <article class="movie-serie-container">
+                            <a href="details.html?id=${dataResults[i].id}&path=tv">
+    
+                                <div class="image-container">
+                                    <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                    <img 
+                                        class="image-poster" 
+                                        src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                        alt="${dataResults[i].name }"
+                                    >
+                                    
+                                </div>
+    
+                                <h3 class="title">
+                                    ${dataResults[i].name}
+                                </h3>
+    
+                                <p class="release-date">
+                                    ${dataResults[i].first_air_date }
+                                </p>
+    
+                            </a>
+                        </article>
+                        `
+                    }else{
+                        i++
+                        container.innerHTML += 
+                        `
+                        <article class="movie-serie-container">
+                            <a href="details.html?id=${dataResults[i].id}&path=tv">
+    
+                                <div class="image-container">
+                                    <img class="overlay-shadow" src="../images/shadows/overlay_shadow.png">
+                                    <img 
+                                        class="image-poster" 
+                                        src="https://image.tmdb.org/t/p/w200/${dataResults[i].poster_path}" 
+                                        alt="${dataResults[i].name }"
+                                    >
+                                    
+                                </div>
+    
+                                <h3 class="title">
+                                    ${dataResults[i].name }
+                                </h3>
+    
+                                <p class="release-date">
+                                    ${dataResults[i].first_air_date }
+                                </p>
+    
+                            </a>
+                        </article>
+                        `
+                        customLengthArray++
+                    }
                 }
-            });
+            }
         })
 
         .catch(function(error) {
