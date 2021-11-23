@@ -678,14 +678,7 @@ export const getResultsSearch = (container) => {
                                     src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
                                     alt="${dataResults.name ? dataResults.name : dataResults.title}"
                                 >
-                                <div class="btn-container">
-                                    <button class="btn-content">
-                                        <img class="btn-play-img img-btn" src="../images/buttons/button-play.png" alt="">
-                                    </button>
-                                    <button class="btn-content btn-add-container">
-                                        <img class="btn-add-img img-btn" src="../images/buttons/add-btn.png" alt="">
-                                    </button>
-                                </div>
+                                
                             </div>
 
                             <h3 class="title">
@@ -983,14 +976,7 @@ export const getTitleSameGenre = (container) => {
                                     src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
                                     alt="${dataResults.name ? dataResults.name : dataResults.title}"
                                 >
-                                <div class="btn-container">
-                                    <button class="btn-content">
-                                        <img class="btn-play-img img-btn" src="../images/buttons/button-play.png" alt="">
-                                    </button>
-                                    <button class="btn-content btn-add-container">
-                                        <img class="btn-add-img img-btn" src="../images/buttons/add-btn.png" alt="">
-                                    </button>
-                                </div>
+                                
                             </div>
 
                             <h3 class="title">
@@ -1018,14 +1004,7 @@ export const getTitleSameGenre = (container) => {
                                     src="https://image.tmdb.org/t/p/w200/${dataResults.poster_path}" 
                                     alt="${dataResults.name ? dataResults.name : dataResults.title}"
                                 >
-                                <div class="btn-container">
-                                    <button class="btn-content">
-                                        <img class="btn-play-img img-btn" src="../images/buttons/button-play.png" alt="">
-                                    </button>
-                                    <button class="btn-content btn-add-container">
-                                        <img class="btn-add-img img-btn" src="../images/buttons/add-btn.png" alt="">
-                                    </button>
-                                </div>
+                                
                             </div>
 
                             <h3 class="title">
